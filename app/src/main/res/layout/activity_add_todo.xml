@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTodoActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F5F5F5"
+        >
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/add_todo_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#F5F5F5"
+            android:fontFamily="@font/open_sans"
+            android:gravity="left"
+            android:padding="8dp"
+            android:text="Задача"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimaryDark"
+            android:textFontWeight="1000"
+            android:textSize="25px"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary"
+        >
+        <EditText
+            android:id="@+id/todo_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:hint="Название"
+            android:layout_marginHorizontal="10dp"
+            android:inputType="text"
+            android:padding="8dp"
+            />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/add_todo_category"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#F5F5F5"
+            android:fontFamily="@font/open_sans"
+            android:gravity="left"
+            android:padding="8dp"
+            android:text="Категория"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimaryDark"
+            android:textFontWeight="1000"
+            android:textSize="25px"
+            android:textStyle="bold"
+            android:visibility="visible" />
+        <ListView
+            android:id="@+id/projectsListView"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             >
+        </ListView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

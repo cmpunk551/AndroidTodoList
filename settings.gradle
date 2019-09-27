@@ -1,0 +1,2 @@
+include ':app', ':calligraphy-2.3.0'
+rootProject.name='TodoListApp'
