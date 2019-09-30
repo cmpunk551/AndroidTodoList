@@ -103,11 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
                 });
 
-
-
-
-
-
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("@font/open_sans_light")
                 .setFontAttrId(R.attr.fontPath)

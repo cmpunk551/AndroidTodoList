@@ -87,11 +87,9 @@ class CustomAdapter extends BaseAdapter {
                     holder.checkBox = convertView.findViewById(R.id.cb);
 
                     Todo todo = mTodo.get(todoIndex);
-                    if(todo.isCompleted)
-                    {
-                        holder.checkBox.setChecked(true);
-                    }
+
                     holder.checkBox.setTag(todo);
+                    holder.checkBox.setChecked(todo.isCompleted);
 
 
                     holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
