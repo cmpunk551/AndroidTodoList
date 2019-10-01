@@ -25,13 +25,14 @@ class CustomAdapter extends BaseAdapter {
     private ArrayList<Todo> mTodo = new ArrayList<>();
     private TreeSet<Integer> sectionHeader = new TreeSet<Integer>();
     public int todoIndex = 0;
+    public boolean isAllCellsSet = false;
 
     private LayoutInflater mInflater;
 
     public CustomAdapter(Context context) {
         mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        todoIndex = 0;
+
     }
 
     public void addItem(final Todo item) {
@@ -77,8 +78,6 @@ class CustomAdapter extends BaseAdapter {
         if(position == 0){
             todoIndex = 0;
         }
-
-        if (convertView == null) {
             holder = new ViewHolder();
             switch (rowType) {
                 case TYPE_ITEM:
@@ -86,11 +85,18 @@ class CustomAdapter extends BaseAdapter {
                     holder.textView = (TextView) convertView.findViewById(R.id.text);
                     holder.checkBox = convertView.findViewById(R.id.cb);
 
+                    for(int index = 0; index<mTodo.size(); index++){
+                        if(mData.get(position) == mTodo.get(index).text){
+                            todoIndex = index;
+                        }
+
+                    }
+
                     Todo todo = mTodo.get(todoIndex);
 
                     holder.checkBox.setTag(todo);
                     holder.checkBox.setChecked(todo.isCompleted);
-
+                    holder.textView.setText(todo.text);
 
                     holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -117,19 +123,16 @@ class CustomAdapter extends BaseAdapter {
                         }
                     });
 
-                    todoIndex++;
                     break;
                 case TYPE_SEPARATOR:
                     convertView = mInflater.inflate(R.layout.list_row, null);
                     holder.textView = (TextView) convertView.findViewById(R.id.textSeparator);
 
+                    holder.textView.setText(mData.get(position));
+
                     break;
             }
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
-        holder.textView.setText(mData.get(position));
+
 
         return convertView;
     }
